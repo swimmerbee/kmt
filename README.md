@@ -9,6 +9,4 @@ Commands: (Wil be crossed out as completed, then after version 1, shown how to u
 		
 This project is for learning purposes, and made for and on linux.
 
-If you encounter any bugs, please send reports to bryce@thewalthers.com
-
 Hope you enjoy!
