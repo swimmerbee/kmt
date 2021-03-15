@@ -1,6 +1,6 @@
 KMT (KMT Manipulates Text) is a really bad text editor.
 
-Made by Bryce Walther with assistance from Edward Lee.
+Made by Bryce Walther.
 
 Goals for this project :
 Make a terminal-based editor with ncurses (Run from the command line)
