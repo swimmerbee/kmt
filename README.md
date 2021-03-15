@@ -8,6 +8,4 @@ Commands: Save, Close, Copy, Paste, Open
 		
 This project is for learning purposes, and made for and on linux.
 
-If you encounter any bugs, please send reports to bryce@thewalthers.com
-
 Hope you enjoy!
