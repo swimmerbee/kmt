@@ -19,4 +19,5 @@ int CmdBuffer::checkMod() {
   } else {
     return 0;
   }
+  mFinished = true;
 }
