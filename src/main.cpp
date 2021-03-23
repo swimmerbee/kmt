@@ -1,37 +1,43 @@
 #include <ncurses.h>
 #include <fstream>
 
-int checkMod() {
-  if (mMod == 's' || mMod == 'o' || mMod == 'x') {
-    return mMod;
+int checkMod(int mod) {
+  if (mod == 's' || mod == 'o' || mod == 'x') {
+    return mod;
   } else {
     return 0;
   }
 }
 
 void initCurses() {
-    initscr();
-    noecho();
-    cbreak();
-    keypad(stdscr, true);
+  initscr();
+  noecho();
+  raw();
+  keypad(stdscr, true);
 }
 
 void readFile() {
   //get fn
-  std::string fn = "";
+  char * fn;
   getstr(fn);
 
   // reading in the file
-  ifstream readFile(fn);
-    
+  std::ifstream readFile(fn);
+
   if(readFile.is_open()) {
     while(!readFile.eof()) {
-      std::string line;
+      // make var, read in curr line, add to scr, refresh
+      std::string line = "";
       getline(readFile, line);
-      addstr(line);  
+      const char * ln = line.c_str();
+      addstr(ln);
+      refresh():
     }
+    readFile.close();
+  }
 }
 
 int main() {
-
+  initCurses();
+  readFile();
 }

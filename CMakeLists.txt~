@@ -1,0 +1,13 @@
+PROJECT(kmt CXX)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+
+SET(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_CXX_FLAGS "-Wall -Wextra")
+
+INCLUDE_DIRECTORIES("~/.local/include")
+INCLUDE_DIRECTORIES("~/.local/include/ncurses")
+LINK_DIRECTORIES("~/.local/lib")
+
+ADD_EXECUTABLE(kmt src/kmt.cpp)
+
+TARGET_LINK_LIBRARIES(kmt "ncurses")
