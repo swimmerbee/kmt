@@ -31,7 +31,7 @@ void readFile() {
       getline(readFile, line);
       const char * ln = line.c_str();
       addstr(ln);
-      refresh():
+      refresh();
     }
     readFile.close();
   }
@@ -39,5 +39,7 @@ void readFile() {
 
 int main() {
   initCurses();
+  addch(' ');
+  refresh();
   readFile();
 }
