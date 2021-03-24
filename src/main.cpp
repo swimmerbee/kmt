@@ -12,7 +12,7 @@ int checkMod(int mod) {
 void initCurses() {
   initscr();
   noecho();
-  raw();
+  cbreak();
   keypad(stdscr, true);
 }
 
@@ -39,7 +39,7 @@ void readFile() {
 
 int main() {
   initCurses();
-  addch(' ');
-  refresh();
-  readFile();
+  std::string hi;
+  getstr(hi);
+  printf(hi);
 }
