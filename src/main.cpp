@@ -16,10 +16,11 @@ void initCurses() {
   keypad(stdscr, true);
 }
 
-void readFile() {
+std::string readFile() {
   //get fn
-  char * fn;
+  char fn[80];
   getstr(fn);
+  // Need to remove file name in screen
 
   // reading in the file
   std::ifstream readFile(fn);
@@ -31,15 +32,23 @@ void readFile() {
       getline(readFile, line);
       const char * ln = line.c_str();
       addstr(ln);
+      addstr("\n");
       refresh();
     }
-    readFile.close();
+
   }
+  std::string fileName(fn);
+  readFile.close();
+  return fileName;
 }
 
+void saveFile() {
+
+}
+
+
 int main() {
-  initCurses();
-  std::string hi;
-  getstr(hi);
-  printf(hi);
+  initscr();
+
+  return 0;
 }
