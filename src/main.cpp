@@ -17,6 +17,7 @@ void initCurses() {
 }
 
 std::string readFile() {
+  erase();
   //get fn
   char fn[80];
   getstr(fn);
@@ -61,7 +62,49 @@ void saveFile(std::string fn) {
 }
 
 int main() {
+  std::string currFileName = "";
+  bool run = true;
+  char c;
+  int x = 0;
+  int y = 0;
+  int unimp = 0;
   initscr();
+
+  while(run == true) {
+    c = getch();
+    getyx(stdscr, y, x);
+
+    switch (c) {
+      case KEY_BACKSPACE:
+        unimp = mvdelch(y, x-1);
+        break;
+      case KEY_DOWN:
+        unimp = move(y-1, x);
+        break;
+      case KEY_UP:
+        unimp = move(y+1, x);
+        break;
+      case KEY_RIGHT:
+        unimp = move(y, x+1);
+        break;
+      case KEY_LEFT:
+        unimp = move(y, x-1);
+        break;
+      case 15:
+        currFileName = readFile();
+        break;
+      case 19:
+        saveFile(currFileName);
+        break;
+      case 24:
+        endwin();
+        run = false;
+        break;
+      default:
+        addch(c);
+        break;
+    }
+  }
 
   return 0;
 }
