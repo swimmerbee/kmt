@@ -1,14 +1,6 @@
 #include <ncurses.h>
 #include <fstream>
 
-int checkMod(int mod) {
-  if (mod == 's' || mod == 'o' || mod == 'x') {
-    return mod;
-  } else {
-    return 0;
-  }
-}
-
 void initCurses() {
   initscr();
   noecho();
@@ -43,7 +35,7 @@ std::string readFile() {
   return fileName;
 }
 
-void saveFile(std::string fn) {
+int saveFile(std::string fn) {
   // if filename is empty, make it untitled
   if (fn == "") {
     fn = "untitled";
@@ -59,6 +51,7 @@ void saveFile(std::string fn) {
   if (success == 0) {
     addstr("An error occured while saving.\n");
   }
+  return success;
 }
 
 int main() {
@@ -67,6 +60,7 @@ int main() {
   char c;
   int x = 0;
   int y = 0;
+  int test = 0;
   int unimp = 0;
   initscr();
 
@@ -94,14 +88,15 @@ int main() {
         currFileName = readFile();
         break;
       case 19:
-        saveFile(currFileName);
+        test = saveFile("");
+        addch(test);
         break;
       case 24:
         endwin();
         run = false;
         break;
       default:
-        addch(c);
+        refresh();
         break;
     }
   }
