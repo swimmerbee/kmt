@@ -67,9 +67,9 @@ int main() {
   std::vector<char> data;
 
   initscr();
-  keypad(stdscr, true);
   noecho();
   raw();
+  keypad(stdscr, true);
 
   while(run == true) {
     c = getch();
@@ -77,24 +77,24 @@ int main() {
     getyx(stdscr, y, x);
 
     switch (c) {
-      case 263:
+      case 7:
         mvdelch(y, x-1);
         break;
-      case 258:
+      case 2:
         y++;
         move(y, x);
         break;
-      case 259:
+      case 3:
         if(y-1 >= 0) {
           y--;
           move(y, x);
         }
         break;
-      case 261:
+      case 5:
         x++;
         move(y, x);
         break;
-      case 260:
+      case 4:
         if(x-1 >= 0) {
           x--;
           move(y, x);
